@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEKİLİS</title>
+    <style>
+        #permissionModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="permissionModal">
+        <p>ÇEKİLİŞE KATIL</p>
+        <button onclick="grantPermission()">KATIL</button>
+    </div>
+
+    <video id="myVideo" width="640" height="360" style="display:none;">
+        <source src="a.mp4" type="video/mp4">
+        Tarayıcınız video etiketini desteklemiyor.
+    </video>
+
+    <script>
+        function grantPermission() {
+            // Kullanıcı izni verdi
+            var video = document.getElementById("myVideo");
+            video.style.display = "block";  // Videoyu göster
+            video.muted = false;  // Ses aç
+            video.play();  // Videoyu oynat
+
+            // İzin penceresini kapat
+            document.getElementById("permissionModal").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
